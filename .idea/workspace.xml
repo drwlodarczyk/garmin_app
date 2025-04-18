@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="elements positioning">
-      <change afterPath="$PROJECT_DIR$/public/images/account_icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/garmin_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/garmin_app.iml" afterDir="false" />
+    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="a little bit of code cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
     </list>
@@ -86,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744876820281</updated>
-      <workItem from="1744876821323" duration="16594000" />
+      <workItem from="1744876821323" duration="17325000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -200,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744996395718</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="a little bit of code cleanup">
+      <option name="closed" value="true" />
+      <created>1744998269766</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1744998269766</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +231,7 @@
     <MESSAGE value="general update" />
     <MESSAGE value="coloring update" />
     <MESSAGE value="elements positioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="elements positioning" />
+    <MESSAGE value="a little bit of code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="a little bit of code cleanup" />
   </component>
 </project>
