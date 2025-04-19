@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="account dropdown creation">
-      <change afterPath="$PROJECT_DIR$/views/partials/navbar.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
+    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="navbar and footer partials">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/footer.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/navbar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/navbar.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +89,7 @@
       <updated>1744876820281</updated>
       <workItem from="1744876821323" duration="19998000" />
       <workItem from="1745078724565" duration="3292000" />
-      <workItem from="1745082517367" duration="2113000" />
+      <workItem from="1745082517367" duration="3515000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -278,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745087079125</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="navbar and footer partials">
+      <option name="closed" value="true" />
+      <created>1745088121798</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1745088121798</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +316,7 @@
     <MESSAGE value="navbar icons cleanup" />
     <MESSAGE value="body battery icons cleanup" />
     <MESSAGE value="account dropdown creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="account dropdown creation" />
+    <MESSAGE value="navbar and footer partials" />
+    <option name="LAST_COMMIT_MESSAGE" value="navbar and footer partials" />
   </component>
 </project>
