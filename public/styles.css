@@ -9,3 +9,15 @@ body {
 h3 {
     color: white;
 }
+
+.dropdown-item {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+#syncToast {
+    top: 40px;
+    left: -140px;
+    min-width: 240px;
+    z-index: 1055;
+}

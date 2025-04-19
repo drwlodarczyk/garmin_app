@@ -20,23 +20,31 @@
                     <img src="/images/bell.svg" alt="notif" style="height:25px;">
                 </a>
                 <div class="dropdown-menu text-center">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Notification 1</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Notification 2</a>
                 </div>
             </div>
-        </div>
         </div>
 
         <!-- Right items -->
         <div class="d-flex align-items-center">
-            <a class="nav-link px-2" href="#">
-                <img src="/images/check.svg" alt="img3" style="height:25px;">
-            </a>
+            <div class="nav-sync-wrapper position-relative">
+                <a class="nav-link px-2" href="#" id="syncBtn">
+                    <img src="/images/check.svg" alt="sync" style="height:25px;">
+                </a>
+
+                <div id="syncToast" class="toast position-absolute start-50 top-100 mt-2 me-3" role="alert"
+                     aria-live="assertive" aria-atomic="true">
+                    <div class="toast-body">
+                        🔄 Synchronizacja rozpoczęta...
+                    </div>
+                </div>
+            </div>
+
             <a class="nav-link px-2" href="#">
                 <img src="/images/watch.svg" alt="img4" style="height:25px;">
             </a>
         </div>
-
     </div>
 </nav>
