@@ -1,0 +1,285 @@
+Index: views/footer.ejs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!-- footer.ejs -->\n<footer class=\"bg-dark\" style=\"padding: 15px; text-align: center;\">\n    <p>&copy; <%= new Date().getFullYear() %> Twoja aplikacja. Wszystkie prawa zastrzeżone.</p>\n    <p>\n        <a href=\"/privacy\">Polityka prywatności</a> |\n        <a href=\"/terms\">Regulamin</a> |\n        <a href=\"/contact\">Kontakt</a>\n    </p>\n</footer>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/footer.ejs b/views/footer.ejs
+--- a/views/footer.ejs	(revision 0d76d94b145d2e48aeaeaa856deaf58e42528abe)
++++ b/views/footer.ejs	(date 1744920945935)
+@@ -1,5 +1,5 @@
+ <!-- footer.ejs -->
+-<footer class="bg-dark" style="padding: 15px; text-align: center;">
++<footer style="padding: 15px; text-align: center; background-color: black;">
+     <p>&copy; <%= new Date().getFullYear() %> Twoja aplikacja. Wszystkie prawa zastrzeżone.</p>
+     <p>
+         <a href="/privacy">Polityka prywatności</a> |
+Index: app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const express = require('express');\nconst path = require('path');\nconst fs = require('fs');\nconst bodyParser = require('body-parser')\n\nconst app = express();\nconst PORT = process.env.PORT || 3000;\n\n// Ustawienie EJS i ścieżek\napp.set('view engine', 'ejs');\napp.set('views', path.join(__dirname, 'views'));\n\napp.use(bodyParser.urlencoded({ extended: true }));\n\n// Middleware\napp.use(bodyParser.json());\napp.use(express.urlencoded({ extended: true }));\napp.use(express.static(path.join(__dirname, 'public')));\n\napp.get('/', (req, res) => {\n    res.render('index');\n})\napp.listen(PORT, () => {\n    console.log(`Server is running on http://localhost:${PORT}`);\n})\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app.js b/app.js
+--- a/app.js	(revision 0d76d94b145d2e48aeaeaa856deaf58e42528abe)
++++ b/app.js	(date 1744920327820)
+@@ -20,6 +20,11 @@
+ app.get('/', (req, res) => {
+     res.render('index');
+ })
++
++app.post('/home', (req, res) => {
++  res.render('home');
++})
++
+ app.listen(PORT, () => {
+     console.log(`Server is running on http://localhost:${PORT}`);
+ })
+Index: views/index.ejs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!doctype html>\n<html lang=\"en\">\n<head>\n    <!-- Required meta tags -->\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n\n    <!-- Bootstrap CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\n    <link rel=\"stylesheet\" href=\"public/styles.css\">\n    <title>Garmin App View</title>\n</head>\n<body>\n\n<nav class=\"navbar navbar-expand navbar-dark bg-dark\">\n    <div class=\"container-fluid d-flex justify-content-between align-items-center\">\n\n        <!-- Lewa strona -->\n        <div class=\"d-flex align-items-center\">\n            <a class=\"nav-link\" href=\"#\">\n                <img src=\"img1.png\" alt=\"img1\" style=\"height:25px;\">\n            </a>\n            <a class=\"nav-link\" href=\"#\">\n                <img src=\"img2.png\" alt=\"img2\" style=\"height:25px;\">\n            </a>\n        </div>\n\n        <!-- Środek -->\n        <div>\n            <a class=\"navbar-brand mx-auto\" href=\"#\">Home</a>\n        </div>\n\n        <!-- Prawa strona -->\n        <div class=\"d-flex align-items-center\">\n            <a class=\"nav-link\" href=\"#\">\n                <img src=\"img3.png\" alt=\"img3\" style=\"height:25px;\">\n            </a>\n            <a class=\"nav-link\" href=\"#\">\n                <img src=\"img4.png\" alt=\"img4\" style=\"height:25px;\">\n            </a>\n        </div>\n\n    </div>\n</nav>\n\n\n<div class=\"container py-3 rounded\">\n    <div class=\"row\">\n        <div class=\"col\">\n            <div class=\"jumbotron\">\n                <h1 class=\"display-5\">Body battery</h1>\n                <div class=\"container-fluid d-flex justify-content-between align-items-center\">\n                    <a class=\"nav-link\" href=\"#\">\n                        <img src=\"img1.png\" alt=\"img1\" style=\"height:25px;\">\n                    </a>\n                    <a class=\"nav-link\" href=\"#\">\n                        <img src=\"img1.png\" alt=\"img1\" style=\"height:25px;\">\n                    </a>\n                    <a class=\"nav-link\" href=\"#\">\n                        <img src=\"img1.png\" alt=\"img1\" style=\"height:25px;\">\n                    </a>\n                </div>\n                <div class=\"container-fluid d-flex justify-content-between align-items-center\">\n                    <img src=\"img2.png\" alt=\"img2\" style=\"height:25px;\">\n                </div>\n                <div class=\"container-fluid text-center\">\n                    <hr class=\"my-4\">\n                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>\n                    <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Go into details</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<%- include('footer') %>\n\n<!-- Optional JavaScript -->\n<!-- jQuery first, then Popper.js, then Bootstrap JS -->\n<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\n</body>\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/index.ejs b/views/index.ejs
+--- a/views/index.ejs	(revision 0d76d94b145d2e48aeaeaa856deaf58e42528abe)
++++ b/views/index.ejs	(date 1744921122523)
+@@ -6,64 +6,71 @@
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+     <!-- Bootstrap CSS -->
+-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+-    <link rel="stylesheet" href="public/styles.css">
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
++          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
++          crossorigin="anonymous">
++    <link rel="stylesheet" href="styles.css">
+     <title>Garmin App View</title>
+ </head>
+ <body>
+ 
+-<nav class="navbar navbar-expand navbar-dark bg-dark">
+-    <div class="container-fluid d-flex justify-content-between align-items-center">
++<div style="background-color: darkgray; height: 100vh">
++    <nav class="navbar navbar-expand-md">
++        <div class="container-fluid d-flex justify-content-between align-items-center">
+ 
+-        <!-- Lewa strona -->
+-        <div class="d-flex align-items-center">
+-            <a class="nav-link" href="#">
+-                <img src="img1.png" alt="img1" style="height:25px;">
+-            </a>
+-            <a class="nav-link" href="#">
+-                <img src="img2.png" alt="img2" style="height:25px;">
+-            </a>
+-        </div>
++            <!-- Left items -->
++            <div class="d-flex align-items-center">
++                <a class="nav-link px-2" href="#">
++                    <img src="img1.png" alt="img1" style="height:25px;">
++                </a>
++                <a class="nav-link px-2" href="#">
++                    <img src="img2.png" alt="img2" style="height:25px;">
++                </a>
++            </div>
+ 
+-        <!-- Środek -->
+-        <div>
+-            <a class="navbar-brand mx-auto" href="#">Home</a>
+-        </div>
++            <!-- Center -->
++            <div class="navbar-brand mx-auto">
++                <form action="/home" method="POST">
++                    <button type="submit" class="btn btn-primary">Home</button>
++                </form>
++            </div>
+ 
+-        <!-- Prawa strona -->
+-        <div class="d-flex align-items-center">
+-            <a class="nav-link" href="#">
+-                <img src="img3.png" alt="img3" style="height:25px;">
+-            </a>
+-            <a class="nav-link" href="#">
+-                <img src="img4.png" alt="img4" style="height:25px;">
+-            </a>
+-        </div>
++            <!-- Right items -->
++            <div class="d-flex align-items-center">
++                <a class="nav-link px-2" href="#">
++                    <img src="img3.png" alt="img3" style="height:25px;">
++                </a>
++                <a class="nav-link px-2" href="#">
++                    <img src="img4.png" alt="img4" style="height:25px;">
++                </a>
++            </div>
+ 
+-    </div>
+-</nav>
++        </div>
++    </nav>
+ 
+-
+-<div class="container py-3 rounded">
+-    <div class="row">
+-        <div class="col">
+-            <div class="jumbotron">
+-                <h1 class="display-5">Body battery</h1>
+-                <div class="container-fluid d-flex justify-content-between align-items-center">
+-                    <a class="nav-link" href="#">
+-                        <img src="img1.png" alt="img1" style="height:25px;">
+-                    </a>
+-                    <a class="nav-link" href="#">
+-                        <img src="img1.png" alt="img1" style="height:25px;">
+-                    </a>
+-                    <a class="nav-link" href="#">
+-                        <img src="img1.png" alt="img1" style="height:25px;">
+-                    </a>
+-                </div>
+-                <div class="container-fluid d-flex justify-content-between align-items-center">
+-                    <img src="img2.png" alt="img2" style="height:25px;">
+-                </div>
+-                <div class="container-fluid text-center">
++    <div class="container-fluid py-3">
++        <h3 class="display-5">In focus</h3>
++        <div class="row justify-content-center">
++            <div class="col-md-10 col-lg-8">
++                <div class="jumbotron text-center">
++                    <h1 class="display-5">Body battery</h1>
++                    <div class="d-flex flex-column flex-md-row justify-content-around align-items-center my-3">
++                        <a class="nav-link" href="#">
++                            <img src="img1.png" alt="img1" style="height:25px;">
++                            <p>32</p>
++                        </a>
++                        <a class="nav-link" href="#">
++                            <img src="img1.png" alt="img1" style="height:25px;">
++                            <p>32</p>
++                        </a>
++                        <a class="nav-link" href="#">
++                            <img src="img1.png" alt="img1" style="height:25px;">
++                            <p>32</p>
++                        </a>
++                    </div>
++                    <div class="my-3">
++                        <img src="img2.png" alt="img2" style="height:25px;">
++                    </div>
+                     <hr class="my-4">
+                     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                     <a class="btn btn-primary btn-lg" href="#" role="button">Go into details</a>
+@@ -71,14 +78,23 @@
+             </div>
+         </div>
+     </div>
++
++    <div class="container">
++        <h3 class="display-5">At Glance</h3>
++    </div>
+ </div>
+ 
+ <%- include('footer') %>
+ 
+ <!-- Optional JavaScript -->
+-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
++<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
++        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
++        crossorigin="anonymous"></script>
++<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
++        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
++        crossorigin="anonymous"></script>
++<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
++        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
++        crossorigin="anonymous"></script>
+ </body>
+-</html>
+\ No newline at end of file
++</html>
+Index: public/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/styles.css b/public/styles.css
+--- a/public/styles.css	(revision 0d76d94b145d2e48aeaeaa856deaf58e42528abe)
++++ b/public/styles.css	(date 1744920812470)
+@@ -1,0 +1,3 @@
++.navbar {
++    background-color: black;
++}
+\ No newline at end of file
+Index: views/home.ejs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/home.ejs b/views/home.ejs
+new file mode 100644
+--- /dev/null	(date 1744920294587)
++++ b/views/home.ejs	(date 1744920294587)
+@@ -0,0 +1,13 @@
++<!doctype html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport"
++          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
++    <meta http-equiv="X-UA-Compatible" content="ie=edge">
++    <title>Home</title>
++</head>
++<body>
++    <h1>Hello World</h1>
++</body>
++</html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"3d604840-8efe-4d74-8e5d-f4780a66a40e\" name=\"Changes\" comment=\"body battery positioning\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/views/index.ejs\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/index.ejs\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JavaScript File\" />\n        <option value=\"CSS File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"drwlodarczyk\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/drwlodarczyk/garmin_app.git\",\n    \"accountId\": \"d6806c53-f008-44f8-b624-5454d5bd6b3d\"\n  }\n}]]></component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 0\n}]]></component>\n  <component name=\"ProjectId\" id=\"2vqe22UcQpGWeSuwajip9AIxPsa\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"list.type.of.created.stylesheet\": \"CSS\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"ts.external.directory.path\": \"/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/views\" />\n    </key>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"3d604840-8efe-4d74-8e5d-f4780a66a40e\" name=\"Changes\" comment=\"\" />\n      <created>1744876820281</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1744876820281</updated>\n      <workItem from=\"1744876821323\" duration=\"6511000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"init commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744876880175</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744876880175</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"init commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744876898794</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744876898794</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"init commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744877055430</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744877055430</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"init commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744877082513</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744877082513</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"footer and header\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744902389858</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744902389858</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"navbar\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744903229967</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744903229967</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"navbar\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744903623180</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744903623180</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"navbar\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744903844737</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744903844737</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"body battery positioning\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744909877703</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744909877703</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"body battery positioning\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1744909996736</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1744909996736</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"11\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"init commit\" />\n    <MESSAGE value=\"footer and header\" />\n    <MESSAGE value=\"navbar\" />\n    <MESSAGE value=\"body battery positioning\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"body battery positioning\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0d76d94b145d2e48aeaeaa856deaf58e42528abe)
++++ b/.idea/workspace.xml	(date 1744921065876)
+@@ -5,7 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="body battery positioning">
++      <change afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/public/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/views/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/footer.ejs" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -84,7 +88,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1744876820281</updated>
+-      <workItem from="1744876821323" duration="6511000" />
++      <workItem from="1744876821323" duration="8971000" />
+     </task>
+     <task id="LOCAL-00001" summary="init commit">
+       <option name="closed" value="true" />
+@@ -166,7 +170,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1744909996736</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="body battery positioning">
++      <option name="closed" value="true" />
++      <created>1744918750163</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1744918750163</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
