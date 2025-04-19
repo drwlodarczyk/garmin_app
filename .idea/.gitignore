@@ -135,3 +135,6 @@ dist
 .pnp.*
 
 .idea/workspace.xml
+public/images/
+.DS_Store
+/workspace.xml
