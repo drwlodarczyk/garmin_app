@@ -15,39 +15,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md w-100">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-
-        <!-- Left items -->
-        <div class="d-flex align-items-center">
-            <div class="dropdown">
-                <a class="nav-link px-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    <img src="/images/account_icon.svg" alt="user" style="height:25px;">
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Logout</a>
-                </div>
-            </div>
-            <a class="nav-link px-2" href="#">
-                <img src="/images/bell.svg" alt="img2" style="height:25px;">
-            </a>
-        </div>
-
-        <!-- Right items -->
-        <div class="d-flex align-items-center">
-            <a class="nav-link px-2" href="#">
-                <img src="/images/check.svg" alt="img3" style="height:25px;">
-            </a>
-            <a class="nav-link px-2" href="#">
-                <img src="/images/watch.svg" alt="img4" style="height:25px;">
-            </a>
-        </div>
-
-    </div>
-</nav>
+<%- include('partials/navbar') %>
 
 <div class="container-fluid">
     <div class="container py-3">
@@ -159,7 +127,7 @@
                 <h3 class="display-5">Last 7 days</h3>
                 <div class="jumbotron text-left bg-dark text-white justify-content-between my-3">
                     <div class="d-flex justify-content-between">
-                        <p>1 Workout</p>
+                        <p>💪 1 Workout</p>
                         <p>1:15:32</p>
                     </div>
                     <hr>
@@ -183,10 +151,9 @@
             </div>
         </div>
     </div>
-
 </div>
 
-<%- include('footer') %>
+<%- include('partials/footer') %>
 
 <!-- Optional JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

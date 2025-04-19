@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="body battery icons cleanup">
+    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="account dropdown creation">
+      <change afterPath="$PROJECT_DIR$/views/partials/navbar.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/footer.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/partials" />
       <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/views" />
     </key>
@@ -86,7 +92,7 @@
       <updated>1744876820281</updated>
       <workItem from="1744876821323" duration="19998000" />
       <workItem from="1745078724565" duration="3292000" />
-      <workItem from="1745082517367" duration="805000" />
+      <workItem from="1745082517367" duration="2113000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -264,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745083187204</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="account dropdown creation">
+      <option name="closed" value="true" />
+      <created>1745087079125</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1745087079125</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +310,7 @@
     <MESSAGE value="added last 7 days section" />
     <MESSAGE value="navbar icons cleanup" />
     <MESSAGE value="body battery icons cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="body battery icons cleanup" />
+    <MESSAGE value="account dropdown creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="account dropdown creation" />
   </component>
 </project>
