@@ -20,19 +20,20 @@
 
         <!-- Left items -->
         <div class="d-flex align-items-center">
-            <a class="nav-link px-2" href="#">
-                <img src="/images/account_icon.svg" alt="img1" style="height:25px;">
-            </a>
+            <div class="dropdown">
+                <a class="nav-link px-2 dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <img src="/images/account_icon.svg" alt="user" style="height:25px;">
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </div>
             <a class="nav-link px-2" href="#">
                 <img src="/images/bell.svg" alt="img2" style="height:25px;">
             </a>
-        </div>
-
-        <!-- Center -->
-        <div class="navbar-brand mx-auto">
-            <form action="/home" method="POST">
-                <button type="submit" class="btn btn-primary">Home</button>
-            </form>
         </div>
 
         <!-- Right items -->

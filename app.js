@@ -21,10 +21,6 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 
-app.post('/home', (req, res) => {
-  res.render('home');
-})
-
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="navbar icons cleanup">
-      <change afterPath="$PROJECT_DIR$/public/images/wykres.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3d604840-8efe-4d74-8e5d-f4780a66a40e" name="Changes" comment="body battery icons cleanup">
       <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +86,7 @@
       <updated>1744876820281</updated>
       <workItem from="1744876821323" duration="19998000" />
       <workItem from="1745078724565" duration="3292000" />
-      <workItem from="1745082517367" duration="580000" />
+      <workItem from="1745082517367" duration="805000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -258,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745081841624</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="body battery icons cleanup">
+      <option name="closed" value="true" />
+      <created>1745083187204</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1745083187204</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +295,7 @@
     <MESSAGE value="added yesterday section" />
     <MESSAGE value="added last 7 days section" />
     <MESSAGE value="navbar icons cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="navbar icons cleanup" />
+    <MESSAGE value="body battery icons cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="body battery icons cleanup" />
   </component>
 </project>
