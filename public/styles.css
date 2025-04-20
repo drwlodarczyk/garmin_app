@@ -4,6 +4,7 @@
 
 body {
     background-color: #1d2327;
+    padding-top: 56px;
 }
 
 h3 {
@@ -20,4 +21,14 @@ h3 {
     left: -140px;
     min-width: 240px;
     z-index: 1055;
+}
+
+.tile-hover {
+    transition: all 0.2s ease;
+}
+
+.tile-hover:hover {
+    background-color: #55565B!important;
+    transform: scale(1.02);
+    cursor: pointer;
 }

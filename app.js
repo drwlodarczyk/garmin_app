@@ -25,6 +25,10 @@ app.get('/profile', (req, res) => {
     res.render('profile');
 })
 
+app.get('/body_battery', (req, res) => {
+    res.render('body_battery');
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
