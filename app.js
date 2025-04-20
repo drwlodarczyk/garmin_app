@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
-app.set('layout', 'layouts/main'); // gdzie main.ejs to główny szablon
+app.set('layout', 'layouts/main');
 
 
 const routes = [
