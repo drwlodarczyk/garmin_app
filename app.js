@@ -17,29 +17,27 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.render('index');
-})
+const expressLayouts = require('express-ejs-layouts');
+app.use(expressLayouts);
+app.set('layout', 'layouts/main'); // gdzie main.ejs to główny szablon
 
-app.get('/profile', (req, res) => {
-    res.render('profile');
-})
 
-app.get('/body_battery', (req, res) => {
-    res.render('body_battery');
-})
+const routes = [
+    '',
+    'profile',
+    'body_battery',
+    'calories',
+    'sleep',
+    'steps',
+    'heart_rate',
+];
 
-app.get('/calories', (req, res) => {
-    res.render('calories');
-})
-
-app.get('/sleep', (req, res) => {
-    res.render('sleep');
-})
-
-app.get('/steps', (req, res) => {
-    res.render('steps');
-})
+routes.forEach(route => {
+    const path = route === 'index' ? '/' : `/${route}`;
+    app.get(path, (req, res) => {
+        res.render(route);
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
