@@ -29,6 +29,18 @@ app.get('/body_battery', (req, res) => {
     res.render('body_battery');
 })
 
+app.get('/calories', (req, res) => {
+    res.render('calories');
+})
+
+app.get('/sleep', (req, res) => {
+    res.render('sleep');
+})
+
+app.get('/steps', (req, res) => {
+    res.render('steps');
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
