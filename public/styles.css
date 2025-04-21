@@ -46,3 +46,7 @@ html, body {
 main {
     flex: 1;
 }
+
+.list-group-horizontal {
+    max-width: 100%;
+}
