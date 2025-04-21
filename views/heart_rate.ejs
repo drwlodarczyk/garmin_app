@@ -35,12 +35,11 @@
 </div>
 
 <script>
-    let chart; // globalna referencja
+    let chart;
 
     document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('myChart');
 
-        // dane testowe
         const dataSets = {
             '1d': {
                 labels: Array.from({ length: 24 }, (_, i) => `${i + 1}h`),
@@ -56,7 +55,6 @@
             }
         };
 
-        // utwórz wykres początkowy
         chart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -72,7 +70,6 @@
             options: { responsive: true }
         });
 
-        // obsługa kliknięć
         document.getElementById('btn-1d').addEventListener('click', () => updateChart('1d'));
         document.getElementById('btn-7d').addEventListener('click', () => updateChart('7d'));
         document.getElementById('btn-4w').addEventListener('click', () => updateChart('4w'));
