@@ -3,15 +3,85 @@
         <div class="col-12 my-4 text-center">
             <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-3" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-secondary">1d</button>
+                    <button type="button" class="btn btn-secondary" id="btn-1d">1d</button>
                 </div>
                 <div class="btn-group mr-3" role="group" aria-label="Second group">
-                    <button type="button" class="btn btn-secondary">7d</button>
+                    <button type="button" class="btn btn-secondary" id="btn-7d">7d</button>
                 </div>
                 <div class="btn-group" role="group" aria-label="Third group">
-                    <button type="button" class="btn btn-secondary">4w</button>
+                    <button type="button" class="btn btn-secondary" id="btn-4w">4w</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
 </div>
+
+<script>
+    let chart; // globalna referencja
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('myChart');
+
+        // dane testowe
+        const dataSets = {
+            '1d': {
+                labels: Array.from({ length: 24 }, (_, i) => `${i + 1}h`),
+                data: [85, 83, 81, 79, 77, 75, 73, 71, 69, 67, 65, 63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39]
+            },
+            '7d': {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: [80, 78, 82, 76, 79, 77, 81]
+            },
+            '4w': {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                data: [75, 78, 74, 80]
+            }
+        };
+
+        // utwórz wykres początkowy
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dataSets['1d'].labels,
+                datasets: [{
+                    label: 'Body Battery',
+                    data: dataSets['1d'].data,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    tension: 0.4
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // obsługa kliknięć
+        document.getElementById('btn-1d').addEventListener('click', () => updateChart('1d'));
+        document.getElementById('btn-7d').addEventListener('click', () => updateChart('7d'));
+        document.getElementById('btn-4w').addEventListener('click', () => updateChart('4w'));
+    });
+
+    function updateChart(period) {
+        const dataSets = {
+            '1d': {
+                labels: Array.from({ length: 24 }, (_, i) => `${i + 1}h`),
+                data: [85, 83, 81, 79, 77, 75, 73, 71, 69, 67, 65, 63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39]
+            },
+            '7d': {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: [80, 78, 82, 76, 79, 77, 81]
+            },
+            '4w': {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                data: [75, 78, 74, 80]
+            }
+        };
+
+        chart.data.labels = dataSets[period].labels;
+        chart.data.datasets[0].data = dataSets[period].data;
+        chart.update();
+    }
+</script>
