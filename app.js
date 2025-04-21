@@ -30,6 +30,7 @@ const routes = [
     { name: 'Sleep', path: 'sleep' },
     { name: 'Steps', path: 'steps' },
     { name: 'Heart Rate', path: 'heart_rate' },
+    { name: 'Settings', path: 'settings' },
 ];
 
 routes.forEach(route => {

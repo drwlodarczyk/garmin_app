@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-4 text-center">
+            <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-3" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-secondary" id="btn-1d">1d</button>
+                </div>
+                <div class="btn-group mr-3" role="group" aria-label="Second group">
+                    <button type="button" class="btn btn-secondary" id="btn-7d">7d</button>
+                </div>
+                <div class="btn-group mr-3" role="group" aria-label="Third group">
+                    <button type="button" class="btn btn-secondary" id="btn-4w">4w</button>
+                </div>
+                <div class="btn-group" role="group" aria-label="Fourth group">
+                    <button type="button" class="btn btn-secondary" id="btn-1y">1y</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <canvas id="stepsChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <div>
+        <button type="button" class="btn btn-secondary my-3" data-toggle="tooltip" data-placement="right"
+                title="Maximum number of steps: X X X">
+            Hoover here!
+        </button>
+    </div>
+
+</div>
+
+<script>
+    let stepsChart;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctx = document.getElementById('stepsChart');
+
+        const stepData = {
+            '1d': {
+                labels: Array.from({ length: 24 }, (_, i) => `${i + 1}:00`),
+                data: [120, 250, 430, 600, 900, 700, 500, 300, 200, 150, 100, 50, 80, 130, 300, 400, 600, 800, 950, 700, 500, 300, 200, 100]
+            },
+            '7d': {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: [7543, 6421, 8123, 9834, 7012, 10223, 9050]
+            },
+            '4w': {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                data: [52100, 48800, 56230, 59740]
+            },
+            '1y': {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                data: [215000, 202500, 223400, 241000, 230500, 245300, 250800, 238000, 222000, 210300, 205600, 198400]
+            }
+        };
+
+        stepsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: stepData['1d'].labels,
+                datasets: [{
+                    label: 'Steps',
+                    data: stepData['1d'].data,
+                    backgroundColor: 'rgba(40, 167, 69, 0.6)',
+                    borderColor: 'rgba(40, 167, 69, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Obsługa przycisków
+        document.getElementById('btn-1d').addEventListener('click', () => updateStepsChart('1d'));
+        document.getElementById('btn-7d').addEventListener('click', () => updateStepsChart('7d'));
+        document.getElementById('btn-4w').addEventListener('click', () => updateStepsChart('4w'));
+        document.getElementById('btn-1y').addEventListener('click', () => updateStepsChart('1y'));
+    });
+
+    function updateStepsChart(period) {
+        const stepData = {
+            '1d': {
+                labels: Array.from({ length: 24 }, (_, i) => `${i + 1}:00`),
+                data: [120, 250, 430, 600, 900, 700, 500, 300, 200, 150, 100, 50, 80, 130, 300, 400, 600, 800, 950, 700, 500, 300, 200, 100]
+            },
+            '7d': {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: [7543, 6421, 8123, 9834, 7012, 10223, 9050]
+            },
+            '4w': {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                data: [52100, 48800, 56230, 59740]
+            },
+            '1y': {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                data: [215000, 202500, 223400, 241000, 230500, 245300, 250800, 238000, 222000, 210300, 205600, 198400]
+            }
+        };
+
+        stepsChart.data.labels = stepData[period].labels;
+        stepsChart.data.datasets[0].data = stepData[period].data;
+        stepsChart.update();
+    }
+</script>
