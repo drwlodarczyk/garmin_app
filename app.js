@@ -23,19 +23,21 @@ app.set('layout', 'layouts/main');
 
 
 const routes = [
-    '',
-    'profile',
-    'body_battery',
-    'calories',
-    'sleep',
-    'steps',
-    'heart_rate',
+    { name: 'Home', path: '' },
+    { name: 'Profile', path: 'profile' },
+    { name: 'Body Battery', path: 'body_battery' },
+    { name: 'Calories', path: 'calories' },
+    { name: 'Sleep', path: 'sleep' },
+    { name: 'Steps', path: 'steps' },
+    { name: 'Heart Rate', path: 'heart_rate' },
 ];
 
 routes.forEach(route => {
-    const path = route === 'index' ? '/' : `/${route}`;
-    app.get(path, (req, res) => {
-        res.render(route);
+    const url = route.path === '' ? '/' : `/${route.path}`;
+    const view = route.path === '' ? 'index' : route.path;
+
+    app.get(url, (req, res) => {
+        res.render(view, { pageTitle: route.name });
     });
 });
 
